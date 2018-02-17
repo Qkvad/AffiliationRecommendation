@@ -17,9 +17,9 @@ g++ -std=c++11 main.cpp Person.cpp Group.cpp -o m
 ```
 
 ## Octave
-Everything related to the work in Octave is in octave/. Run `main` while in Octave command window to see user by user graph depiction
+Everything related to the work in Octave is in octave/. Run `main` while in Octave command window to see user by user graph depiction.
 
 ## Tex
-Everything related to the work in Octave is in tex/.
+Everything related to the work in tex is in tex/.
 
 
