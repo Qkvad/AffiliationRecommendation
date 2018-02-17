@@ -1,5 +1,7 @@
-A=mmread('../social_network/A.mtx');
-[rows,cols] = size(A);
+S=mmread('../social_network/S.mtx');
+A1=mmread('../social_network/A.mtx');
+A=A1';
+[rows,cols] = size(S);
 
 r_sq = round(sqrt(rows));
 
@@ -8,4 +10,4 @@ for i=1:rows
    crd(i,2) = mod(i, r_sq);
  end
  
-gplot(A,crd,"o-")
+gplot(S,crd,"o-")
