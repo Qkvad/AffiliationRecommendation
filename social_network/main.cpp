@@ -61,17 +61,17 @@ int main()
 
     int uSize = allUsers.size();
     int nonZero = 0;
-    std::ofstream matrixA;
-    matrixA.open ("A.mtx");
-    matrixA << "%%MatrixMarket matrix coordinate real general\n";
+    std::ofstream matrixS;
+    matrixS.open ("S.mtx");
+    matrixS << "%%MatrixMarket matrix coordinate real general\n";
     for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
         for (std::list<Person*>::iterator f_it = u_it->friends.begin(); f_it != u_it->friends.end(); f_it++)
             nonZero++;
-    matrixA << uSize << " " << uSize << " "<< nonZero << std::endl;
+    matrixS << uSize << " " << uSize << " "<< nonZero << std::endl;
     for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
         for (std::list<Person*>::iterator f_it = u_it->friends.begin(); f_it != u_it->friends.end(); f_it++)
-            matrixA << u_it->id << " " << (*f_it)->id << " 1\n";
-    matrixA.close();
+            matrixS << u_it->id << " " << (*f_it)->id << " 1\n";
+    matrixS.close();
 
 
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++) {
@@ -82,17 +82,17 @@ int main()
 
     int gSize = allGroups.size();
     nonZero = 0;
-    std::ofstream matrixS;
-    matrixS.open ("S.mtx");
-    matrixS << "%%MatrixMarket matrix coordinate real general\n";
+    std::ofstream matrixA;
+    matrixA.open ("A.mtx");
+    matrixA << "%%MatrixMarket matrix coordinate real general\n";
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
         for (std::list<Person*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
             nonZero++;
-    matrixS << gSize << " " << uSize << " "<< nonZero << std::endl;
+    matrixA << gSize << " " << uSize << " "<< nonZero << std::endl;
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
         for (std::list<Person*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
-            matrixS << g_it->id << " " << (*m_it)->id << " 1\n";
-    matrixS.close();
+            matrixA << g_it->id << " " << (*m_it)->id << " 1\n";
+    matrixA.close();
 
 
     /*
