@@ -55,7 +55,7 @@ int main()
 
     for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++) {
         u_it->addRandomFriends(&allUsers);
-        //it->printFriends();
+        u_it->printFriends();
         //sleep(1);
     }
 
@@ -80,7 +80,7 @@ int main()
 
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++) {
         g_it->addRandomMembers(&allUsers);
-        //g_it->printMembers();
+        g_it->printMembers();
         //sleep(1);
     }
 

@@ -19,6 +19,7 @@ Person::~Person()
 
 void Person::addFriend(Person* p)
 {
+	if(p->id==this->id) return;
     if(std::find(this->friends.begin(), this->friends.end(), p) == this->friends.end())
     {
         this->friends.push_front(p);
