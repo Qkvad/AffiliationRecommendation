@@ -40,7 +40,7 @@ void Person::addRandomFriends(std::list<Person>* persons)
         this->addFriend(&(*iter));
     }
 
-    std::cout << "added random friends to " << this->id << std::endl;
+    //std::cout << "added random friends to " << this->id << std::endl;
 }
 
 void Person::printFriends()

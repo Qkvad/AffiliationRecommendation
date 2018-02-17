@@ -41,7 +41,7 @@ void Group::addRandomMembers(std::list<Person>* persons)
         this->addMember(&(*iter));
     }
 
-    std::cout << "added random members to " << this->id << std::endl;
+    //std::cout << "added random members to " << this->id << std::endl;
 }
 
 void Group::printMembers()

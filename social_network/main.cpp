@@ -59,6 +59,8 @@ int main()
         //sleep(1);
     }
 
+	std::cout << "Users friended."<< std::endl;
+
     int uSize = allUsers.size();
     int nonZero = 0;
     std::ofstream matrixS;
@@ -73,12 +75,16 @@ int main()
             matrixS << u_it->id << " " << (*f_it)->id << " 1\n";
     matrixS.close();
 
+	std::cout << "users by users matrix S created."<< std::endl;
+
 
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++) {
         g_it->addRandomMembers(&allUsers);
-        g_it->printMembers();
+        //g_it->printMembers();
         //sleep(1);
     }
+
+	std::cout << "Groups filled."<< std::endl;
 
     int gSize = allGroups.size();
     nonZero = 0;
@@ -93,6 +99,8 @@ int main()
         for (std::list<Person*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
             matrixA << g_it->id << " " << (*m_it)->id << " 1\n";
     matrixA.close();
+
+	std::cout << "groups by users matrix A created."<< std::endl;
 
 
     /*
