@@ -24,3 +24,4 @@ function [correct]=count_same(v1,v2,user)
       end
     end
   end
+endfunction

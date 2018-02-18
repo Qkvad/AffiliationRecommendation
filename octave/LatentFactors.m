@@ -1,3 +1,5 @@
+#Test with d << number of groups
+
 function [final] = LatentFactors (A,A1,S,lambda,d,c)
   [nu,ng] = size(A);
   C1 = zeros(nu+ng,nu+ng);
