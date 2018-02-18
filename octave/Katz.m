@@ -8,13 +8,9 @@ function [final]=Katz(A,A1,c)
    end
   [rowsum,colsum]=size(sum);
   for i=1:rowsum
-    sorted=sort(sum(i,:),'descend');
+    [sorted,index]=sort(sum(i,:),'descend');
     for j=1:c
-      for k=1:colsum
-        if sum(i,k)==sorted(j)
-          final(i,j)=k;
-          break
-        end
-      end
+      final(i,j)=index(j);
     end
   end
+  
