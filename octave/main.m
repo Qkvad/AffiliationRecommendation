@@ -1,6 +1,6 @@
 S=mmread('../social_network/S.mtx');
-A1=mmread('../social_network/A.mtx');
-A=A1';
+A=mmread('../social_network/A.mtx');
+A1= A';
 printf("Matrices A and S loaded\n");
 
 [rows,cols] = size(S);

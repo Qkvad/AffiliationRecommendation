@@ -1,12 +1,14 @@
-#ifndef User_H
-#define User_H
+#ifndef USER_H
+#define USER_H
 
 #include <iostream>
 #include <list>
 #include <set>
 #include <algorithm>
 
-//#include "Group.h"
+#include "Group.h"
+
+class Group;
 
 class User
 {
@@ -18,7 +20,8 @@ public:
     void addRandomFriends(std::list<User>* Users);
     void printFriends();
 
-    //void addGroup(Group* g);
+    void addGroup(Group* g);
+    void printGroups();
 
     /*****************************/
 
@@ -27,7 +30,7 @@ public:
     int popularity;
 
     std::list<User*> friends;
-    //std::list<Group*> groups;
+    std::list<Group*> groups;
 };
 
 #endif

@@ -17,14 +17,17 @@ User::~User()
 {
 }
 
-void User::addFriend(User* p)
-{
-	if(p->id==this->id) return;
-    if(std::find(this->friends.begin(), this->friends.end(), p) == this->friends.end())
-    {
+void User::addFriend(User* p) {
+    if (p->id == this->id) return;
+    if (std::find(this->friends.begin(), this->friends.end(), p) == this->friends.end()) {
         this->friends.push_front(p);
         p->addFriend(this);
     }
+
+    // join to group in which this friend latest joined (in 25% of times)
+    if (rand() % 100 < 25)
+        if (p->groups.begin() != p->groups.end())
+            this->addGroup(*(p->groups.begin()));
 }
 
 void User::addRandomFriends(std::list<User>* Users)
@@ -46,13 +49,20 @@ void User::addRandomFriends(std::list<User>* Users)
 
 void User::printFriends()
 {
-    std::cout << "Friends of user " << this->name << "_" << this->id << ": " << this->friends.size() << "  (popularity: " << this->popularity << ")" << std::endl;
+    std::cout << "Friends of " << this->name << "_" << this->id << ": " << this->friends.size() << "  (popularity: " << this->popularity << ")" << std::endl;
     for(std::list<User*>::iterator it = friends.begin(); it != friends.end(); it++)
         std::cout << (*it)->name << "_" << (*it)->id << std::endl;
-    std::cout << std::endl;
 }
 
-/*void User::addGroup(Group *g)
+void User::addGroup(Group *g)
 {
-    groups.push_front(g);
-}*/
+    if(std::find(this->groups.begin(), this->groups.end(), g) == this->groups.end())
+        groups.push_front(g);
+}
+
+void User::printGroups()
+{
+    std::cout << "Groups of " << this->name << "_" << this->id << ": " << this->groups.size() << std::endl;
+    for(std::list<Group*>::iterator it = groups.begin(); it != groups.end(); it++)
+        std::cout << (*it)->name << "_" << (*it)->id << std::endl;
+}

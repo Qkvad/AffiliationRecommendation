@@ -47,19 +47,29 @@ int main()
     createUsers(&allUsers);
     createGroups(&allGroups);
 
-    //std::list<User>::iterator it = allUsers.end();
-    //(--it)->popularity = 20;
-    //(--it)->popularity = 1;
-
     srand (time(NULL));
 
-    for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++) {
+    for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
+        g_it->addRandomMembers(&allUsers);
+
+    std::cout << std::endl << "Groups filled." << std::endl << std::endl;
+
+    for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
         u_it->addRandomFriends(&allUsers);
+
+	std::cout << "Users friended."<< std::endl << std::endl;
+
+    for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++) {
         u_it->printFriends();
-        //sleep(1);
+        u_it->printGroups();
+        std::cout << std::endl;
     }
 
-	std::cout << "Users friended."<< std::endl;
+    for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++) {
+        g_it->printMembers();
+    }
+
+    /******************************************************************************************************************/
 
     int uSize = allUsers.size();
     int nonZero = 0;
@@ -75,32 +85,23 @@ int main()
             matrixS << u_it->id << " " << (*f_it)->id << " 1\n";
     matrixS.close();
 
-	std::cout << "users by users matrix S created."<< std::endl;
-
-
-    for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++) {
-        g_it->addRandomMembers(&allUsers);
-        g_it->printMembers();
-        //sleep(1);
-    }
-
-	std::cout << "Groups filled."<< std::endl;
+	std::cout << "users by users matrix S created."<< std::endl << std::endl;
 
     int gSize = allGroups.size();
     nonZero = 0;
     std::ofstream matrixA;
     matrixA.open ("A.mtx");
     matrixA << "%%MatrixMarket matrix coordinate real general\n";
-    for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
-        for (std::list<User*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
+    for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
+        for (std::list<Group*>::iterator g_it = u_it->groups.begin(); g_it != u_it->groups.end(); g_it++)
             nonZero++;
-    matrixA << gSize << " " << uSize << " "<< nonZero << std::endl;
-    for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
-        for (std::list<User*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
-            matrixA << g_it->id << " " << (*m_it)->id << " 1\n";
+    matrixA << uSize << " " << gSize << " "<< nonZero << std::endl;
+    for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
+        for (std::list<Group*>::iterator g_it = u_it->groups.begin(); g_it != u_it->groups.end(); g_it++)
+            matrixA << u_it->id << " " << (*g_it)->id << " 1\n";
     matrixA.close();
 
-	std::cout << "groups by users matrix A created."<< std::endl;
+	std::cout << "users by groups matrix A created."<< std::endl;
 
 
     /*

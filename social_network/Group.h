@@ -7,6 +7,8 @@
 
 #include "User.h"
 
+class User;
+
 class Group
 {
 public:

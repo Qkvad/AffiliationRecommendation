@@ -23,7 +23,7 @@ void Group::addMember(User* p)
     if(std::find(this->members.begin(), this->members.end(), p) == this->members.end())
     {
         this->members.push_front(p);
-        //p->addGroup(this);
+        p->addGroup(this);
     }
 }
 
@@ -40,8 +40,6 @@ void Group::addRandomMembers(std::list<User>* Users)
 
         this->addMember(&(*iter));
     }
-
-    //std::cout << "added random members to " << this->id << std::endl;
 }
 
 void Group::printMembers()
