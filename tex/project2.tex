@@ -63,6 +63,8 @@
 
 \usepackage{hyperref} % For hyperlinks in the PDF
 
+\usepackage{amsmath}
+
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -120,31 +122,17 @@ Text requiring further explanation\footnote{Example footnote}.
 
 %------------------------------------------------
 
-\section{Methods}
+\section{Models}
+In this section, we will establish the notation used in models that follow. \\
+Notation. Let the $N_u$ be the number of users and $N_g$ be the number of groups. We define matrix $A \in \mathbb{R}^{N_u \times N_g}$ which denotes user$\times$group matrix or adjacency matrix of affiliation network and matrix $S \in \mathbb{R}^{N_u \times N_u}$ which denotes user$\times$user matrix or adjacency matrix of friendship. \\
 
-\begin{table}
-\caption{Example table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+The task is to recommend affiliations to a given user, we tackeled all the users simultaniously. The problem can be posed as a problem of ranking affilations in order of the users interest in joining them. Methods that will be introduced later solve the problem by assigning scores to various affiliations in order to rank them. \\
 
-\blindtext % Dummy text
+Consider the adjacency matrices $A$ and $S$. We assume $S$ is symmetric, if user $i$ is friend to user $j$ then user $j$ is friend to user $i$. Matrix $S$ corresponds to undirected graph among users and $\begin{bmatrix} 	0 & A\\ 	A^T & 0 \end{bmatrix}$ corresponds to undirected bipartite graph between users and groups. We will also define a graph $C$ between all users and groups, with the combined adjacency matrix  $ C= \begin{bmatrix} 	\lambda S & A\\ 	A^T & 0 \end{bmatrix}$. Parametar $\lambda$ controls the ratio of the weight of friendship to the weight of group membership. If $\lambda = 0$ we have bipartite affiliations graph. \\
 
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
+Models we are introducing are Graph proximity model and Latent factors model to calculate score matrices. 
 
-\blindtext % Dummy text
+
 
 \subsection{Graph proximity model}
 We start by assuming that the graph is known and the prediction of new links between nodes is going to be examined by calculating proximity. As we mentioned, the affiliation network can be modeled by a graph, so the basic idea is that there is possible link between two nodes based on the proximity between them. Proximity can be calculated as sum of number of paths  that connect them, paths of different lengths. \\
@@ -156,7 +144,7 @@ where in the co-occurence matrix $A A^T$, two users $i$ and $j$ are considered c
 We will now expand Katz measure on the combined graph $C$
 \[ Katz(C;\beta) = \beta C +\beta^2 C^2 + ...  \]
 \[ Katz(C;\beta) = \beta A +\beta^2 \lambda S A +  \beta^3( \lambda^2 S^2A + A A^T A ) + ...  \]
-This Katz measure generalizes the normal Katz measure by also considering some paths from user $i$ to user $j$ by matrix $S$, then user $j$ to some group by matrix $A$. And also user $i$ to user $j$ by $S$, user $j$ to user $k$ by $AA^T$ then again user $k$ to user $j$ by $A$ and finaly user $j$ to some group by $A$. 
+This Katz measure generalizes the normal Katz measure by also considering some paths from user $i$ to user $j$ by matrix $S$, then user $j$ to some group by matrix $A$. And also user $i$ to user $j$ by $S$, user $j$ to user $k$ by $AA^T$ then again user $k$ to user $j$ by $A$ and finaly user $j$ to some group by $A$. The matrix given by $Katz(C;\beta)$ can be used as score matrix.
 In case of higher dimension of matrices you work with, truncated Katz is preffered, but for our problems we stick to normal Katz because matrices for testing are not high dimensional. \\
 We will just roughly discuss which $\beta$ and $\lambda$ we should take. In our algorithms $\beta$ is calculated as reciprocal of the maximum absolute value of eigenvalues of matrix $A$. Usually we take $\lambda = 0.2$ but the point of that parametar is to factor the significance of user to user matrix and the connections between users itself. 
 
