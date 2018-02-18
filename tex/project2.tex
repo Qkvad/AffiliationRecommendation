@@ -86,7 +86,7 @@
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent Many social networks today, beside friendships, contain various groups and communities users associate with. Therefore, we can distinguish two co-existent networks; user-to-user and user-to-group connections. The goal of this work is to calculate group affiliation recomendation for each user. Implications of those calculations span beyond social networks and can be applied to a wide range of problems.  % Dummy abstract text - replace \blindtext with your abstract text
+\noindent Many social networks today, beside friendships, contain various groups and communities users associate with. Therefore, we can distinguish many co-existent structures within given network, such as user-to-user and user-to-group connections. The goal of this work is to calculate group affiliation recomendation for each user. Implications of those calculations span beyond social networks and can be applied to a wide range of problems.  % Dummy abstract text - replace \blindtext with your abstract text
 \end{abstract}
 }
 
@@ -103,22 +103,10 @@
 
 \section{Introduction}
 
-%\lettrine[nindent=0em,lines=3]{L} orem ipsum dolor sit amet, consectetur adipiscing elit.
-\blindtext % Dummy text
+Predicting the future state of social networks has become a major occupation of scientists in recent years, thus data science as a discipline is growing more rapidly each day. Furthermore, there is a lot of interest in affiliation recomendation in today's over more competitive market. Nonetheless, approaches mentioned in this paper can even be extended to a vairety of non-social problems such as the problem of identifying genes affecting certain traits from observed genes-to-genes and genes-to-traits connections.
 
-Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas. 
-\begin{itemize}
-\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
-\item Curabitur feugiat
-\item turpis sed auctor facilisis
-\item arcu eros accumsan lorem, at posuere mi diam sit amet tortor
-\item Fusce fermentum, mi sit amet euismod rutrum
-\item sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
-\item Pellentesque bibendum pretium aliquet
-\end{itemize}
-\blindtext % Dummy text
-
-Text requiring further explanation\footnote{Example footnote}.
+{\large\textit{Our network.}} Today's social networks have a lot of restrictions on their public API as well as strict laws against content crawling, so we decided to build our own social network of virtual users and groups. It is composed of users and groups, each having their capabilities which will be briefly described here and can, together with models calculations, be closely observed in our \href{https://github.com/Qkvad/AffiliationRecommendation}{GitHub repository}. Our network is created in distinct steps; groups creation, users creation, groups initial population, users be-friending. Last step is the most interesting one. User adds number of friends from list of all friends dependant on its popularity. There exist 1\% of "super-popular" users who are at least 2 times more popular than regular users. Friendship is symetrical, that is, when an user adds new friend, this friend also adds him. This can easily be changed to be non-symetrical. Users, execpt their initial group membersihps also decide to join groups which their friends are members of and tthey do that 25\% of the time.\\
+Method described above yields a very good and "real-structured" social-network from which existant user connections and group affiliations are easily extracted in the form of later mentioned matrices A and S.
 
 %------------------------------------------------
 

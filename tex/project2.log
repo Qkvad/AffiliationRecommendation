@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.14)  18 FEB 2018 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.3)  18 FEB 2018 20:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -857,21 +857,31 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <10> not available
 (Font)              Font shape `T1/pplx/b/n' tried instead on input line 99.
-LaTeX Font Info:    Try loading font information for OMS+pplx on input line 111
+
+Underfull \hbox (badness 2762) in paragraph at lines 108--110
+\T1/pplx/m/n/10 (+20) and "real-structured" social-network from
+ []
+
+
+Underfull \vbox (badness 1194) has occurred while \output is active []
+
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 115
 .
-LaTeX Font Info:    No file OMSpplx.fd. on input line 111.
 
-
-LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 111.
-
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 127
-.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 126--128
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
+
+ []
+
+
+Underfull \hbox (badness 2961) in paragraph at lines 117--118
+[]\T1/pplx/m/n/10 (+20) The task is to rec-om-mend af-fil-i-a-tions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
@@ -879,22 +889,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
 
 ]
-Underfull \hbox (badness 2961) in paragraph at lines 129--130
-[]\T1/pplx/m/n/10 (+20) The task is to rec-om-mend af-fil-i-a-tions
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-
- []
-
-
-Overfull \hbox (27.95406pt too wide) detected at line 146
+Overfull \hbox (27.95406pt too wide) detected at line 134
 \OML/zplm/m/it/10 Katz\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 C\OT1/pplx/m/n/10 ; \
 OML/zplm/m/it/10 ^^L\OT1/zplm/m/n/10 ) = \OML/zplm/m/it/10 ^^LA \OT1/zplm/m/n/1
 0 + \OML/zplm/m/it/10 ^^L[]^^USA \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 ^^L[]\OT1
@@ -903,39 +903,28 @@ AA[]A\OT1/zplm/m/n/10 ) + \OT1/pplx/m/n/10 ...
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 167--171
+Underfull \hbox (badness 1748) in paragraph at lines 155--159
 []\T1/pplx/m/n/10 (+20) Figueredo, A. J.
  []
 
-
-Underfull \vbox (badness 2617) has occurred while \output is active []
-
- [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 176.
-
-[3
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 176.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 164.
+[2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 164.
  (./project2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 176.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 176.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
 Package rerunfilecheck Info: File `project2.out' has not changed.
 (rerunfilecheck)             Checksum: 9874D631700188DAD5E923E2B12E0AEE;328.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 176.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
  ) 
 Here is how much of TeX's memory you used:
- 10106 strings out of 494910
- 152247 string characters out of 6179836
- 280462 words of memory out of 5000000
- 13050 multiletter control sequences out of 15000+600000
- 63422 words of font info for 214 fonts, out of 8000000 for 9000
+ 10092 strings out of 494910
+ 151835 string characters out of 6179836
+ 279494 words of memory out of 5000000
+ 13016 multiletter control sequences out of 15000+600000
+ 56588 words of font info for 222 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 36i,10n,43p,667b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,43p,1163b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -947,10 +936,10 @@ mri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on project2.pdf (3 pages, 110977 bytes).
+Output written on project2.pdf (2 pages, 111382 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 55857 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 91 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 51249 words of extra memory for PDF output out of 51595 (max. 10000000)
 
