@@ -6,9 +6,9 @@ Crawler::Crawler()
     std::cout << "crawler init"<< std::endl;
 }
 
-void Crawler::startCrawlWith(Person* p)
+void Crawler::startCrawlWith(User* p)
 {
-    for(std::list<Person*>::iterator it = p->friends.begin(); it != p->friends.end(); it++)
+    for(std::list<User*>::iterator it = p->friends.begin(); it != p->friends.end(); it++)
     {
         foundFriendPairs.push_back(std::make_pair(p->id, (*it)->id));
 
@@ -26,7 +26,7 @@ void Crawler::crawlEntireStack()
     std::cout << "stack crawling";
     while(!crawlStack.empty())
     {
-        Person* st = crawlStack.top();
+        User* st = crawlStack.top();
         startCrawlWith(st);
         crawlStack.pop();
         sleep(1);
