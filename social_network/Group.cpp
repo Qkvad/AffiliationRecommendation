@@ -18,7 +18,7 @@ Group::~Group()
 {
 }
 
-void Group::addMember(Person* p)
+void Group::addMember(User* p)
 {
     if(std::find(this->members.begin(), this->members.end(), p) == this->members.end())
     {
@@ -27,14 +27,14 @@ void Group::addMember(Person* p)
     }
 }
 
-void Group::addRandomMembers(std::list<Person>* persons)
+void Group::addRandomMembers(std::list<User>* Users)
 {
-    std::list<Person>::iterator iter = persons->begin();
+    std::list<User>::iterator iter = Users->begin();
     int k;
 
     for(int i=0; i<this->popularity; i++)
     {
-        iter = persons->begin();
+        iter = Users->begin();
         k = std::rand() % NUMBER_OF_USERS;
         std::advance(iter, k);
 
@@ -47,7 +47,7 @@ void Group::addRandomMembers(std::list<Person>* persons)
 void Group::printMembers()
 {
     std::cout << "Members of group " << this->name << "_" << this->id << ": " << this->members.size() << "  (popularity: " << this->popularity << ")" << std::endl;
-    for(std::list<Person*>::iterator it = members.begin(); it != members.end(); it++)
+    for(std::list<User*>::iterator it = members.begin(); it != members.end(); it++)
         std::cout << (*it)->name << "_" << (*it)->id << std::endl;
     std::cout << std::endl;
 }

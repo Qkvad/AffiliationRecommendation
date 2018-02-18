@@ -1,7 +1,7 @@
-#include "Person.h"
+#include "User.h"
 #include "config.h"
 
-Person::Person(int _id, std::string nm)
+User::User(int _id, std::string nm)
 {
     id = _id;
     name = nm;
@@ -13,11 +13,11 @@ Person::Person(int _id, std::string nm)
         popularity = MAX_USER_POPULARITY * (2 + std::rand() % 5);
 }
 
-Person::~Person()
+User::~User()
 {
 }
 
-void Person::addFriend(Person* p)
+void User::addFriend(User* p)
 {
 	if(p->id==this->id) return;
     if(std::find(this->friends.begin(), this->friends.end(), p) == this->friends.end())
@@ -27,14 +27,14 @@ void Person::addFriend(Person* p)
     }
 }
 
-void Person::addRandomFriends(std::list<Person>* persons)
+void User::addRandomFriends(std::list<User>* Users)
 {
-    std::list<Person>::iterator iter = persons->begin();
+    std::list<User>::iterator iter = Users->begin();
     int k;
 
     for(int i=0; i<this->popularity; i++)
     {
-        iter = persons->begin();
+        iter = Users->begin();
         k = std::rand() % NUMBER_OF_USERS;
         std::advance(iter, k);
 
@@ -44,15 +44,15 @@ void Person::addRandomFriends(std::list<Person>* persons)
     //std::cout << "added random friends to " << this->id << std::endl;
 }
 
-void Person::printFriends()
+void User::printFriends()
 {
     std::cout << "Friends of user " << this->name << "_" << this->id << ": " << this->friends.size() << "  (popularity: " << this->popularity << ")" << std::endl;
-    for(std::list<Person*>::iterator it = friends.begin(); it != friends.end(); it++)
+    for(std::list<User*>::iterator it = friends.begin(); it != friends.end(); it++)
         std::cout << (*it)->name << "_" << (*it)->id << std::endl;
     std::cout << std::endl;
 }
 
-/*void Person::addGroup(Group *g)
+/*void User::addGroup(Group *g)
 {
     groups.push_front(g);
 }*/

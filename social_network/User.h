@@ -1,5 +1,5 @@
-#ifndef PERSON_H
-#define PERSON_H
+#ifndef User_H
+#define User_H
 
 #include <iostream>
 #include <list>
@@ -8,14 +8,14 @@
 
 //#include "Group.h"
 
-class Person
+class User
 {
 public:
-    Person(int _id, std::string nm);
-    ~Person();
+    User(int _id, std::string nm);
+    ~User();
 
-    void addFriend(Person* p);
-    void addRandomFriends(std::list<Person>* persons);
+    void addFriend(User* p);
+    void addRandomFriends(std::list<User>* Users);
     void printFriends();
 
     //void addGroup(Group* g);
@@ -26,7 +26,7 @@ public:
     std::string name;
     int popularity;
 
-    std::list<Person*> friends;
+    std::list<User*> friends;
     //std::list<Group*> groups;
 };
 

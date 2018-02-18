@@ -6,16 +6,16 @@
 
 #include "config.h"
 
-#include "Person.h"
+#include "User.h"
 #include "Group.h"
 #include "Crawler.h"
 
-void createUsers(std::list<Person>* persons)
+void createUsers(std::list<User>* Users)
 {
     for(int i=0; i<NUMBER_OF_USERS; i++)
-        persons->push_back(Person(i+1, "person"));
+        Users->push_back(User(i+1, "User"));
 
-    std::cout << "Persons list created."<< std::endl;
+    std::cout << "Users list created."<< std::endl;
 }
 
 void createGroups(std::list<Group>* groups)
@@ -26,9 +26,9 @@ void createGroups(std::list<Group>* groups)
     std::cout << "Group list created."<< std::endl;
 }
 
-Person* chooseRandomPerson(std::list<Person>* persons)
+User* chooseRandomUser(std::list<User>* Users)
 {
-    std::list<Person>::iterator iter = persons->begin();
+    std::list<User>::iterator iter = Users->begin();
     int k = std::rand() % NUMBER_OF_USERS;
 
     std::advance(iter, k);
@@ -38,16 +38,16 @@ Person* chooseRandomPerson(std::list<Person>* persons)
 
 int main()
 {
-    std::list<Person> allUsers;
+    std::list<User> allUsers;
     std::list<Group> allGroups;
 
-    std::list<Person>::iterator u_it;
+    std::list<User>::iterator u_it;
     std::list<Group>::iterator g_it;
 
     createUsers(&allUsers);
     createGroups(&allGroups);
 
-    //std::list<Person>::iterator it = allUsers.end();
+    //std::list<User>::iterator it = allUsers.end();
     //(--it)->popularity = 20;
     //(--it)->popularity = 1;
 
@@ -67,11 +67,11 @@ int main()
     matrixS.open ("S.mtx");
     matrixS << "%%MatrixMarket matrix coordinate real general\n";
     for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
-        for (std::list<Person*>::iterator f_it = u_it->friends.begin(); f_it != u_it->friends.end(); f_it++)
+        for (std::list<User*>::iterator f_it = u_it->friends.begin(); f_it != u_it->friends.end(); f_it++)
             nonZero++;
     matrixS << uSize << " " << uSize << " "<< nonZero << std::endl;
     for(u_it = allUsers.begin(); u_it != allUsers.end(); u_it++)
-        for (std::list<Person*>::iterator f_it = u_it->friends.begin(); f_it != u_it->friends.end(); f_it++)
+        for (std::list<User*>::iterator f_it = u_it->friends.begin(); f_it != u_it->friends.end(); f_it++)
             matrixS << u_it->id << " " << (*f_it)->id << " 1\n";
     matrixS.close();
 
@@ -92,11 +92,11 @@ int main()
     matrixA.open ("A.mtx");
     matrixA << "%%MatrixMarket matrix coordinate real general\n";
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
-        for (std::list<Person*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
+        for (std::list<User*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
             nonZero++;
     matrixA << gSize << " " << uSize << " "<< nonZero << std::endl;
     for(g_it = allGroups.begin(); g_it != allGroups.end(); g_it++)
-        for (std::list<Person*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
+        for (std::list<User*>::iterator m_it = g_it->members.begin(); m_it != g_it->members.end(); m_it++)
             matrixA << g_it->id << " " << (*m_it)->id << " 1\n";
     matrixA.close();
 
@@ -105,7 +105,7 @@ int main()
 
     /*
     Crawler crawl;
-    crawl.startCrawlWith(chooseRandomPerson(&allUsers));
+    crawl.startCrawlWith(chooseRandomUser(&allUsers));
     crawl.crawlEntireStack();
     crawl.printFinding();
     */
