@@ -56,7 +56,7 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
+\fancyhead[C]{Affiliation Recommendation using Auxiliary Networks $\bullet$ Feb 2018} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
@@ -64,6 +64,7 @@
 \usepackage{hyperref} % For hyperlinks in the PDF
 
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -148,20 +149,45 @@ Solution of this problem is given by SVD decomposition of $C^\prime$: $C^\prime 
 
 \section{Discussion}
 
+We tested our calculations on a variety of different networks, ranging from large to small, from containing extremely popular users or groups to having equally spread popularity.
+
+%%%%%%%%%% users_graph
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{users_graph}
+	\caption{Graph of $user \times user$}
+	\label{pic1}
+\end{figure}
+
 \subsection{Results}
 
+Results obtained by 2 different models (graph proximity and latent factors) agree on suprisingly large number of suggestions: cases in which they do not agree in any of $c$ suggestions for a specific user are extremely rare and occur in less than $1\%$ of the time.
+
+%%%%%%%%% latent_katzC-sim
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{latent_katzC_sim}
+	\caption{Number of the same top 5 recommendations obtained with Graph proximity model and Latent factors model}
+	\label{pic1}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
-
+\pagebreak
 \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
+\bibitem[1]{AffRec}
+Vishvas Vasuki, Zhengdong Lu, Nagarajan Natarajan, Inderjit Dhillon.
+\newblock Affiliation Recommendation using Auxiliary Networks.
+
+\bibitem[2]{MesMeth}
+Alan Mislove, Massimiliano Marcon, Krishna P. Gummadi, Peter Druschel, Bobby Bhattacharjee.
+\newblock Measurement and Analysis of Online Social Networks.
+
+
 
 \end{thebibliography}
 

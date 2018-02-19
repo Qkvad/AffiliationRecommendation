@@ -16,7 +16,7 @@ num_of_recomendations = input("Type how many recomendations: ");
 
 katz_result = Katz(A,A1,num_of_recomendations);
 katzC_result = KatzC(A,A1,S,0.2,num_of_recomendations);
-latent_result = LatentFactors(A,A1,S,0.2,rows,num_of_recomendations);
+latent_result = LatentFactors(A,A1,S,0.2,0.2,2,num_of_recomendations);
 printf("Model results stored\n");
 
 katz_katzC_similarity = count_same(katz_result,katzC_result,0);

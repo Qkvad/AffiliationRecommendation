@@ -8,7 +8,11 @@ Group::Group(int _id, std::string nm)
     name = nm;
     popularity = 1 + std::rand() % MAX_GROUP_POPULARITY ;
 
-    // create super popular user (1% of all users)
+	// forcebly create super popular group
+	if(id <= FORCED_SUPER_POPULAR_GROUPS)
+		popularity = popularity = MAX_GROUP_POPULARITY * (2 + std::rand() % 5);
+
+    // randomly create super popular group (1% of all group)
     int k = std::rand() % 100;
     if(k==1)
         popularity = MAX_GROUP_POPULARITY * (2 + std::rand() % 5);
