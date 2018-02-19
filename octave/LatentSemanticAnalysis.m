@@ -1,6 +1,6 @@
 #Test with d << number of groups
 
-function [final] = ProbabilisticCollaborativeFilteringModel (A,d,c)
+function [final] = LatentSemanticAnalysis (A,d,c)
   [nu,ng] = size(A);
   [U,sigma,V] = svd(A);
   Aapprox = U(:,1:d)*sigma(1:d,1:d)*V(:,1:d).';

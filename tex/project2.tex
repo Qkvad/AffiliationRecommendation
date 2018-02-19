@@ -24,7 +24,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\usepackage{blindtext} % Package to generate dummy text throughout this template 
+\usepackage{blindtext} % Package to generate dummy text throughout this template
 
 \usepackage[sc]{mathpazo} % Use the Palatino font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -118,7 +118,7 @@ The task is to recommend affiliations to a given user, we tackeled all the users
 
 Consider the adjacency matrices $A$ and $S$. We assume $S$ is symmetric, if user $i$ is friend to user $j$ then user $j$ is friend to user $i$. Matrix $S$ corresponds to undirected graph among users and $\begin{bmatrix} 	0 & A\\ 	A^T & 0 \end{bmatrix}$ corresponds to undirected bipartite graph between users and groups. We will also define a graph $C$ between all users and groups, with the combined adjacency matrix  $ C= \begin{bmatrix} 	\lambda S & A\\ 	A^T & 0 \end{bmatrix}$. Parametar $\lambda$ controls the ratio of the weight of friendship to the weight of group membership. If $\lambda = 0$ we have bipartite affiliations graph. \\
 
-Models we are introducing are Graph proximity model and Latent factors model to calculate score matrices. 
+Models we are introducing are Graph proximity model and Latent factors model to calculate score matrices.
 
 
 
@@ -134,9 +134,15 @@ We will now expand Katz measure on the combined graph $C$
 \[ Katz(C;\beta) = \beta A +\beta^2 \lambda S A +  \beta^3( \lambda^2 S^2A + A A^T A ) + ...  \]
 This Katz measure generalizes the normal Katz measure by also considering some paths from user $i$ to user $j$ by matrix $S$, then user $j$ to some group by matrix $A$. And also user $i$ to user $j$ by $S$, user $j$ to user $k$ by $AA^T$ then again user $k$ to user $j$ by $A$ and finaly user $j$ to some group by $A$. The matrix given by $Katz(C;\beta)$ can be used as score matrix.
 In case of higher dimension of matrices you work with, truncated Katz is preffered, but for our problems we stick to normal Katz because matrices for testing are not high dimensional. \\
-We will just roughly discuss which $\beta$ and $\lambda$ we should take. In our algorithms $\beta$ is calculated as reciprocal of the maximum absolute value of eigenvalues of matrix $A$. Usually we take $\lambda = 0.2$ but the point of that parametar is to factor the significance of user to user matrix and the connections between users itself. 
+We will just roughly discuss which $\beta$ and $\lambda$ we should take. In our algorithms $\beta$ is calculated as reciprocal of the maximum absolute value of eigenvalues of matrix $A$. Usually we take $\lambda = 0.2$ but the point of that parametar is to factor the significance of user to user matrix and the connections between users itself.
 
 \subsection{Latent factors model}
+
+In Latent factors model we start with matrices $A$ and $S$ defined same as before. We use them to form the matrix
+$ C^\prime (\lambda, D) = \begin{bmatrix} \lambda S & A\\ A^T & D \end{bmatrix} $. \\
+Zeros in $A$ and $S$ are viewed as unobserved entries with high probability of being zero. $D$ is the derived similarity between groups. Often $A^TA$ or $\lambda A^TA$ are used as $D$. \\
+We assume $A \approx U^T G$ where $U \in \mathbb{R}^{d \times N_u}$, $G \in \mathbb{R}^{d \times N_g}$ where $d \ll N_u, N_g$. With fixed value of $d$ we want $C^\prime (\lambda, D) \approx \begin{bmatrix} U^T\\ G^T \end{bmatrix}\begin{bmatrix}U&G \end{bmatrix}$ in terms of Frobenius norm. \\
+Solution of this problem is given by SVD decomposition of $C^\prime$: $C^\prime \approx U \Sigma G^T$ where $U$ is the matrix of $d$ leading singular vectors, $\Sigma$ is $d \times d$ matrix of $d$ highest singular values and $G$ is the matrix of $d$ leading singular vectors. We can interpret this approximation as the score matrix.
 
 %------------------------------------------------
 
@@ -156,7 +162,7 @@ Figueredo, A.~J. and Wolf, P. S.~A. (2009).
 \newblock Assortative pairing and life history strategy - a cross-cultural
   study.
 \newblock {\em Human Nature}, 20:317--330.
- 
+
 \end{thebibliography}
 
 %----------------------------------------------------------------------------------------
